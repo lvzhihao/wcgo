@@ -1,15 +1,33 @@
 package wordcensor_test
 
-import wc "git.ishopex.cn/base/wordcensor"
-import "fmt"
+import "testing"
+import wc "git.ishopex.cn/base/wcgo"
+//import "fmt"
 
-func main(){
-    MM, err := wc.Create("demo.txt", "demo2")
+func TestCreate(t *testing.T){
+    _, err := wc.Create("demo.txt", "test_demo")
     if err != nil{
+        t.Log("pass.. -_-! ")
+    }else{
+        t.Log("fail..")
     }
-    fmt.Printf("mmtable size: %d\n", wc.Status(MM).Size)
-    Map, err1 :=  wc.Check(MM, "隐藏在共和国的敌人")
-    if err1 != nil{
+}
+
+func TestFetch(t *testing.T){
+    _, err := wc.Fetch("test_demo")
+    if err != nil{
+        t.Log("pass.. -_-! ")
+    }else{
+        t.Log("fail..")
     }
-    fmt.Printf("Maps:\n%v\n", Map)
+}
+
+func TestCheck(t *testing.T){
+    MM, _ := wc.Fetch("test_demo")
+    _, err := wc.Check(MM, "隐藏在共和国的敌人")
+    if err != nil{
+        t.Log("pass.. -_-! ")
+    }else{
+        t.Log("fail..")
+    }
 }
