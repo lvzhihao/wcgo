@@ -9,9 +9,9 @@ package wordcensor
 #include "wordcensor/docs.h"
 #include "wordcensor/check.h"
 
-#cgo linux pkg-config: glib-2.0
-#cgo linux CFLAGS: -I/usr/local/wordcensor/include -pthread
-#cgo linux LDFLAGS: -L/usr/local/wordcensor/lib/wordcensor -lwordcensor -lm
+#cgo pkg-config: glib-2.0
+#cgo CFLAGS: -I/usr/local/wordcensor/include -pthread
+#cgo LDFLAGS: -L/usr/local/wordcensor/lib/wordcensor -lwordcensor -lm
 */
 import "C"
 import "errors"
