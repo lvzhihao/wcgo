@@ -14,8 +14,10 @@ func TestCreate(t *testing.T){
 }
 
 func TestFetch(t *testing.T){
-    _, err := wc.Fetch("wcgo_test")
+    mm, err := wc.Fetch("wcgo_test")
+    status := wc.Status(mm)
     if err == nil{
+        t.Log("status: ", status)
         t.Log("pass.. -_-! ")
     }else{
         t.Error("fail..")
