@@ -21,13 +21,15 @@ type WcStatus struct {
     Size int
 }
 
-func Create(filename string, flag string) (*C.wcMM, error) {
+func Create(filename string, flag string, memo string, size int) (*C.wcMM, error) {
     var table *C.wcTable
     var err error
     C.wordcensor_create_table(&table)
     C.wordcensor_open_deny_file(C.CString(filename), table)
     var MM *C.wcMM
-    C.wordcensor_mm_create(&MM, C.CString(flag))
+    var MMInfo *C.wcMMInfo
+    C.wordcensor_mminfo_create(&MMInfo, C.CString(memo), C.uint(size))
+    C.wordcensor_mm_create(&MM, MMInfo, C.CString(flag))
     if C.wordcensor_mmtable_create(MM, table) != C.WORDCENSOR_SUCCESS{
         err = errors.New("mmtable create error!")
     }

@@ -5,7 +5,7 @@ import wc "git.ishopex.cn/base/wcgo"
 //import "fmt"
 
 func TestCreate(t *testing.T){
-    _, err := wc.Create("demo.txt", "test_demo")
+    _, err := wc.Create("demo.txt", "wcgo_test", "wcgo_test", 67108864)
     if err != nil{
         t.Log("pass.. -_-! ")
     }else{
