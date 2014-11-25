@@ -9,7 +9,7 @@ func TestCreate(t *testing.T){
     if err == nil{
         t.Log("pass.. -_-! ")
     }else{
-        t.Log("fail..")
+        t.Error("fail..")
     }
 }
 
@@ -18,7 +18,7 @@ func TestFetch(t *testing.T){
     if err == nil{
         t.Log("pass.. -_-! ")
     }else{
-        t.Log("fail..")
+        t.Error("fail..")
     }
 }
 
@@ -29,6 +29,6 @@ func TestCheck(t *testing.T){
         t.Log(res)
         t.Log("pass.. -_-! ")
     }else{
-        t.Log("fail..")
+        t.Error("fail..")
     }
 }
