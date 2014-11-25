@@ -6,7 +6,7 @@ import wc "git.ishopex.cn/base/wcgo"
 
 func TestCreate(t *testing.T){
     _, err := wc.Create("demo.txt", "wcgo_test", "wcgo_test", 67108864)
-    if err != nil{
+    if err == nil{
         t.Log("pass.. -_-! ")
     }else{
         t.Log("fail..")
@@ -14,8 +14,8 @@ func TestCreate(t *testing.T){
 }
 
 func TestFetch(t *testing.T){
-    _, err := wc.Fetch("test_demo")
-    if err != nil{
+    _, err := wc.Fetch("wcgo_test")
+    if err == nil{
         t.Log("pass.. -_-! ")
     }else{
         t.Log("fail..")
@@ -23,9 +23,10 @@ func TestFetch(t *testing.T){
 }
 
 func TestCheck(t *testing.T){
-    MM, _ := wc.Fetch("test_demo")
-    _, err := wc.Check(MM, "隐藏在共和国的敌人")
-    if err != nil{
+    MM, _ := wc.Fetch("wcgo_test")
+    res, err := wc.Check(MM, "隐藏在共和国的敌人")
+    if err == nil{
+        t.Log(res)
         t.Log("pass.. -_-! ")
     }else{
         t.Log("fail..")
