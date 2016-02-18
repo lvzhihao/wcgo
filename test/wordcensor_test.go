@@ -1,7 +1,7 @@
 package wordcensor_test
 
 import "testing"
-import wc "git.ishopex.cn/base/wcgo"
+import wc "github.com/lvzhihao/wcgo"
 //import "fmt"
 
 func TestCreate(t *testing.T){
