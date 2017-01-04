@@ -9,6 +9,14 @@ import (
 
 //import "fmt"
 
+func BenchmarkCheckData(b *testing.B) {
+	obj := wc.New(wc.Config{})
+	obj.Load("wcgo_test")
+	for n := 0; n < b.N; n++ {
+		obj.Check("隐藏在共和国的敌人")
+	}
+}
+
 func TestCreate(t *testing.T) {
 	_, err := wc.Create("demo.txt", "wcgo_test", "wcgo_test", 67108864)
 	if err == nil {
